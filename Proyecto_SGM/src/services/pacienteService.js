@@ -5,7 +5,7 @@ class PacienteService {
         return pacienteRepository.findAll();
     }
 
-    getPersonaById(id){
+    getPacienteById(id){
         return pacienteRepository.findById(id);
     }
 

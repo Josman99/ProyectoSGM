@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-    const paciente  = await PacienteService.getAllPaciente(req.params.id);
+    const paciente  = await PacienteService.getPacienteById(req.params.id);
     if (paciente) {
         res.json(paciente);
     }
@@ -34,7 +34,7 @@ router.put('/:id', async (req, res) => {
 })
 
 router.delete('/:id', async(req,res)=>{
-    const deletedPaciente = await PacienteService.deletedPaciente(req.params.id);
+    const deletedPaciente = await PacienteService.deletePaciente(req.params.id);
     if(deletedPaciente){
         res.status(204).send();
     } else {

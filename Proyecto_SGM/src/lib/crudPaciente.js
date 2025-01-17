@@ -22,7 +22,7 @@ class CrudPaciente {
 
     async findById(id) {
         const [rows] = await pool.query(`SELECT * FROM ${this.tableName} 
-            WHERE id = ?`, [id]);
+            WHERE id_paciente = ?`, [id]);
         return rows[0];
     }
 
