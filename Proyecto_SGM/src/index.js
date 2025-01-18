@@ -1,10 +1,14 @@
 const express = require('express');
 const helmet = require('helmet');
+const cors = require("cors");
+
 require('dotenv').config();
 const pacienteController = require('./controllers/pacienteController')
-//const rolController = require('./controllers/rolController')
-//const personaController = require("./controllers/personaController")
+const personalController = require('./controllers/personalMController')
+const tipoPersonalController = require("./controllers/tipoPersonalController")
+const especialidadController = require("./controllers/especialidadController")
 const app = express();
+app.use(cors())
 app.use(express.json());
 app.use(helmet());
 app.use(helmet.referrerPolicy({
@@ -19,8 +23,9 @@ app.use(helmet.referrerPolicy({
     next();
   });
 app.use('/api/pacientes', pacienteController);
-//app.use('/api/roles', rolController);
-//app.use('/api/personas', personaController);
+app.use('/api/personalMedico', personalController);
+app.use('/api/tipoPersonal', tipoPersonalController);
+app.use('/api/especialidad', especialidadController);
 
 const port= process.env.PORT || 3000;
 
