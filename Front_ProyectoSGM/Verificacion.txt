@@ -1,0 +1,7 @@
+Client does not support authentication protocol requested by server; consider upgrading MySQL client
+
+Problem detected!
+Port 3306 in use by "Unable to open process"!
+MySQL WILL NOT start without the configured ports free!
+You need to uninstall/disable/reconfigure the blocking application
+or reconfigure MySQL and the Control Panel to listen on a different port

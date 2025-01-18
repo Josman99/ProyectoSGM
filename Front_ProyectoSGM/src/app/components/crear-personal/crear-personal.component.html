@@ -1,0 +1,76 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">{{ titulo | uppercase }}</span>
+                    <form class="" [formGroup]="personalForm" (ngSubmit)="agregarPersonal()">
+                        <div class="form-group row mb-4">
+                            <div class="col-md-6 mt-4">
+                              <label class="form-label">INGRESE DNI</label>
+                              <input type="number" formControlName="Dni_Personal_Medico" 
+                                class="form-control" name="dni" id="dni" placeholder="DNI" oninput="if(this.value.length > 8) this.value = this.value.slice(0, 8);" >
+                            </div>
+                            <div class="col-md-6 mt-4">
+                              <label class="form-label">NOMBRES</label>
+                              <input type="text" formControlName="Nombres_Personal_Medico"
+                                class="form-control" name="nombre" id="nombre" placeholder="Nombres">
+                            </div>
+                            <div class="col-md-6 mt-4">
+                              <label class="form-label">APELLIDOS</label>
+                              <input type="text" formControlName="Apellidos_Personal_Medico"  
+                                class="form-control" name="apellido" id="apellido" placeholder="Apellido">
+                            </div>
+                            <div class="col-md-6 mt-4">
+                              <label class="form-label">FECHA DE NACIMIENTO</label>
+                              <input type="date" formControlName="FechaNacimiento_Personal_Medico" 
+                                class="form-control" name="fecha" id="fecha" >
+                            </div>
+                            <div class="col-md-6 mt-4">
+                              <label class="form-label">DIRECCIÓN</label>
+                              <input type="text" formControlName="Direccion_Personal_Medico"  
+                                class="form-control" name="direccion" id="direccion" placeholder="Direccion">
+                            </div>
+                            <div class="col-md-6 mt-4">
+                              <label class="form-label">TELÉFONO</label>
+                              <input type="text" formControlName="Telefono_Personal_Medico" 
+                               class="form-control" name="telefono" id="telefono" placeholder="Telefono">
+                            </div>
+                            <div class="col-md-6 mt-4">
+                              <label class="form-label">NÚMERO DE COLEGIATURA</label>
+                              <input type="text" formControlName="Numero_Colegiatura" 
+                               class="form-control" name="numero" id="numero" placeholder="Numero de Colegiatura">
+                            </div>
+                            <div class="col-md-6 mt-4">
+                              <label class="form-label">TIPO Personal</label>
+                              <select formControlName="TipoPersonal" class="form-select">
+                                <option *ngFor="let TipoPersonal of tipoPersonales" [value]="TipoPersonal.Id_Tipo_Personal">
+                                  {{ TipoPersonal.Tipo_Personal }}
+                                </option>
+                                <option *ngIf="tipoPersonales.length === 0">No hay datos</option>
+                              </select>
+                            </div>     
+                            <div class="col-md-6 mt-4">
+                              <label class="form-label">TIPO ESPECIALIDAD</label>
+                              <select formControlName="Especialidad" class="form-select">
+                                <option *ngFor="let especialidad of especialidades" [value]="especialidad.Id_Especialidades">
+                                  {{ especialidad.Especialidad }}
+                                </option>
+                                <option *ngIf="especialidades.length === 0">No hay datos</option>
+                              </select>
+                            </div>
+                            
+                            
+                                                   
+                      </div>
+                       
+                      <div class="d-flex justify-content-end">
+                          <a class="btn btn-primary mr-2" routerLink="/">volver</a>
+                          <input class="btn btn-success " type="submit" name="guardar" id="guardar" value="Guardar"><br>
+                      </div>  
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

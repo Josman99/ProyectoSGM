@@ -1,0 +1,49 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">LISTADO DE PERSONAL MEDICO</span>
+                    <button routerLink="/crear-personal" class="btn btn-success float-end">Nuevo</button>
+                    <table *ngIf="listPersonal.length > 0" class="table table-striped mt-4">
+                        <thead class="table-info">
+                            <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">DNI</th>
+                            <th scope="col">Nombres</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">F. Naci.</th>
+                            <th scope="col">Direccion</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">N. Colegi.</th>
+                            <th scope="col">Id Tipo</th>
+                            <th scope="col">Id Espec</th>
+                            <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let personal of listPersonal">
+                                <th>{{ personal.Id_Personal_Medico }}</th>
+                                <td>{{ personal.Dni_Personal_Medico }}</td>
+                                <td>{{ personal.Nombres_Personal_Medico }}</td>
+                                <td>{{ personal.Apellidos_Personal_Medico }}</td>
+                                <td>{{ personal.FechaNacimiento_Personal_Medico }}</td>
+                                <td>{{ personal.Direccion_Personal_Medico }}</td>
+                                <td>{{ personal.Telefono_Personal_Medico }}</td>
+                                <td>{{ personal.Numero_Colegiatura }}</td>
+                                <td>{{ personal.Id_Tipo_Personal }}</td>
+                                <td>{{ personal.Id_Especialidad }}</td>
+                                <td>
+                                    <i [routerLink]="['/modificar-personal',personal.Id_Personal_Medico]" class="fas fa-solid fa-pen-to-square text-warning me-2"></i>
+                                    <i (click)="eliminarPersonal(personal.Id_Personal_Medico)" class="fas fa-solid fa-trash text-danger"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h5 style="text-align: start; margin-top: 10px;" *ngIf="listPersonal.length == 0">No hay Personal Para mostrar</h5>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
